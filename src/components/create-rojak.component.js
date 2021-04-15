@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Form, Button, FormGroup, FormControl, ControlLabel, InputGroup } from "react-bootstrap";
+import { Form, Button, Row, Col } from "react-bootstrap";
 
 const PoemLine = props => (
     <Form>
-    <Row>
-        <Col>
-        <Form.Label column sm="2">
-        Email
-        </Form.Label>
-        </Col>
-        <Col>
-        <Form.Control placeholder="Last name" />
-        </Col>
-    </Row>
-</Form>
+         <Form.Group>
+        <Row>
+            <Col>
+            <Form.Label column sm="8">
+                {props.poemLine.text}
+            </Form.Label>
+            </Col>
+            <Col>
+            {props.poemLine.text != "" &&
+                <Form.Control value={props.poemLine.text} onChange={(e) => props.onChangePoemLine(props.poemLine.line, e)}/>
+            }
+            </Col>
+        </Row>
+        </Form.Group>
+    </Form>
 )
 
 export default class CreateRojak extends Component {
@@ -24,12 +28,14 @@ export default class CreateRojak extends Component {
         this.onNext = this.onNext.bind(this);
         this.onChangeProjectAuthor = this.onChangeProjectAuthor.bind(this);
         this.onChangeProjectTitle = this.onChangeProjectTitle.bind(this);
+        this.onChangePoemLine = this.onChangePoemLine.bind(this);
 
         this.state = {
             credentialsState: true,
             projectAuthor: "",
             projectTitle: "",
-            actualPoem: {}, 
+            actualPoem: [], 
+            toBeSubmittedPoem: [],
         };
 
     } 
@@ -40,7 +46,8 @@ export default class CreateRojak extends Component {
             .then(response => {
                 this.setState(
                     { 
-                        actualPoem: response.data[0]
+                        actualPoem: response.data[0].actualPoem,
+                        toBeSubmittedPoem: this.state.actualPoem
                     }
                 )
             })
@@ -61,9 +68,20 @@ export default class CreateRojak extends Component {
         }) 
      }
 
-     exerciseList() {
-        return this.state.exercises.map(currentexercise => {
-          return <Exercise exercise={currentexercise} deleteExercise={this.deleteExercise} key={currentexercise._id}/>;
+     onChangePoemLine(id, e) {
+        //  console.log(e)
+         let tempActualPoem = [...this.state.actualPoem]
+         tempActualPoem[id-1].text = e.target.value
+         this.setState({
+            actualPoem: tempActualPoem
+         })
+         console.log(this.state.toBeSubmittedPoem[id-1].text)
+     }
+
+     PoemLinesList() {
+        //  console.log(this.state.actualPoem.actualPoem)
+        return this.state.actualPoem.map(currentpoemLine => {
+          return <PoemLine poemLine={currentpoemLine} onChangePoemLine={this.onChangePoemLine} key ={currentpoemLine.line}/>;
         })
     }
 
@@ -79,7 +97,7 @@ export default class CreateRojak extends Component {
             return (
                 <div>
                    <Form onSubmit={this.onNext}>
-                    <Form.Group controlId="formBasicEmail">
+                    <Form.Group>
                         <Form.Label>Name</Form.Label>
                         <Form.Control required type="text" placeholder="Emily Dickinson" value={this.state.projectAuthor}
                         onChange={this.onChangeProjectAuthor}/>
@@ -88,7 +106,7 @@ export default class CreateRojak extends Component {
                         </Form.Text>
                     </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
+                    <Form.Group>
                         <Form.Label>Project Title</Form.Label>
                         <Form.Control required type="text" placeholder="A project like no other" value={this.state.projectTitle}
                         onChange={this.onChangeProjectTitle}/>
@@ -105,7 +123,7 @@ export default class CreateRojak extends Component {
         }
         return (
             <div>
-                {}
+                {this.PoemLinesList()}
           </div>
         )
     }
