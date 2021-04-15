@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const termSchema = new Schema ({
-    enTerm: {
+    englishTerm: {
         type: String, 
         required: true, 
     },
@@ -11,7 +11,7 @@ const termSchema = new Schema ({
         type: String, 
         required: true,
     },
-    sgTerm: {
+    singlishTerm: {
         type: Array,
         required: true,
     },
