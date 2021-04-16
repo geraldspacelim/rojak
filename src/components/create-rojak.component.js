@@ -8,7 +8,8 @@ const PoemLine = props => (
         <Row>
             <Col>
             <Form.Label column sm="8">
-                {props.poemLine.text}
+                {/* {props.poemLine.text} */}
+                {props.dataLabel[props.poemLine.line-1].text}
             </Form.Label>
             </Col>
             <Col>
@@ -35,7 +36,7 @@ export default class CreateRojak extends Component {
             projectAuthor: "",
             projectTitle: "",
             actualPoem: [], 
-            toBeSubmittedPoem: [],
+            dataLabel: [],
         };
 
     } 
@@ -47,7 +48,6 @@ export default class CreateRojak extends Component {
                 this.setState(
                     { 
                         actualPoem: response.data[0].actualPoem,
-                        toBeSubmittedPoem: this.state.actualPoem
                     }
                 )
             })
@@ -75,13 +75,14 @@ export default class CreateRojak extends Component {
          this.setState({
             actualPoem: tempActualPoem
          })
-         console.log(this.state.toBeSubmittedPoem[id-1].text)
+        //  console.log(this.state.toBeSubmittedPoem[id-1].text)
      }
 
      PoemLinesList() {
         //  console.log(this.state.actualPoem.actualPoem)
+        // let dataLabel = this.state.actualPoem.slice()
         return this.state.actualPoem.map(currentpoemLine => {
-          return <PoemLine poemLine={currentpoemLine} onChangePoemLine={this.onChangePoemLine} key ={currentpoemLine.line}/>;
+          return <PoemLine poemLine={currentpoemLine} dataLabel= {this.state.dataLabel} onChangePoemLine={this.onChangePoemLine} key ={currentpoemLine.line}/>;
         })
     }
 
@@ -93,6 +94,8 @@ export default class CreateRojak extends Component {
     }
 
     render() {
+        this.state.dataLabel = this.state.actualPoem.slice()
+        // console.log(this.state.dataLabel == this.state.actualPoem)
         if (this.state.credentialsState) {
             return (
                 <div>

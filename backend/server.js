@@ -18,10 +18,10 @@ connection.once('open', () => {
 })
 
 const poemsRouter = require('./routes/poems'); 
-// const usersRouter = require('./routes/users')
+const termsRouter = require('./routes/terms')
 // 
 app.use('/poems', poemsRouter)
-// app.use('/users', usersRouter);
+app.use('/terms', termsRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
