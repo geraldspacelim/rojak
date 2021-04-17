@@ -15,6 +15,10 @@ const rojakPoemSchema = new Schema ({
         type: Array, 
         required: true, 
     },
+    projectDescription: {
+        type: String, 
+        required: true,
+    }
 }, {
     timestamps: true,
 })

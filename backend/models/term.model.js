@@ -15,6 +15,10 @@ const termSchema = new Schema ({
         type: Array,
         required: true,
     },
+    lineNum: {
+        type: Number, 
+        require:true
+    }
 }, {
     timestamps: true,
 })

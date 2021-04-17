@@ -20,11 +20,13 @@ router.route('/addRojakPoem').post((req, res) => {
     const projectName = req.body.projectName; 
     const author = req.body.author; 
     const rojakPoem = req.body.author;
+    const projectDescription = req.body.projectDescription
 
     const newRojakPoem = new RojakPoem({
         projectName, 
         author, 
         rojakPoem, 
+        projectDescription
     })
 
     newRojakPoem.save()
