@@ -19,7 +19,7 @@ router.route('/getActualPoem').get((req, res) => {
 router.route('/addRojakPoem').post((req, res) => {
     const projectName = req.body.projectName; 
     const author = req.body.author; 
-    const rojakPoem = req.body.author;
+    const rojakPoem = req.body.rojakPoem;
     const projectDescription = req.body.projectDescription
 
     const newRojakPoem = new RojakPoem({

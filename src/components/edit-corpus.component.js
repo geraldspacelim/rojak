@@ -66,7 +66,7 @@ export default class EditCorpus extends Component {
         axios.post('http://localhost:5000/terms/update/' + this.props.match.params.id, term)
         .then(res => console.log(res.data));
 
-        // window.location = '/'
+        window.location = '/'
     }
 
 

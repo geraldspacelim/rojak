@@ -96,10 +96,6 @@ export default class CreateRojak extends Component {
             actualPoem: [], 
             caseSensitive: false,
             projectDescription: "", 
-            // testPoem: [{"line": 1,"text": ""},{"line": 2,"text": ""},{"line": 3,"text": ""},{"line": 4,"text": ""},{"line": 5,"text": ""},{"line": 6,"text": ""},{"line": 7,"text": ""},{"line": 8,"text": ""},{"line": 9,"text": ""},{"line": 10,"text": ""},{"line": 11,"text": ""},{"line": 12,"text": ""},{"line": 13,"text": ""},{"line": 14,
-            // "text": ""},{"line": 15,"text": ""},{"line": 16,"text": ""},{
-            // "line": 17,"text": ""},{"line": 18,"text": ""},{"line": 19,"text": ""},{"line": 20,"text": ""},{"line": 21,"text": ""},{"line": 22,
-            // "text": ""},{"line": 23,"text": ""},{"line": 24,"text": ""},{"line": 25,"text": ""},{"line": 26,"text": ""},{"line": 27,"text": ""},{"line": 28,"text": ""},{"line": 29,"text": ""}],
             dataLabel: [{"line": 1,"text": "I met him down upon the pier;"},{"line": 2,"text": "His eyes were wild and sad,"},{"line": 3,"text": "And something in them made me fear"},{"line": 4,"text": "That he was going mad."},{"line": 5,"text": ""},{"line": 6,"text": "So, being of a prudent sort,"},{"line": 7,"text": "I stood some distance off,"},{"line": 8,"text": "And before speaking gave a short"},{"line": 9,"text": "Conciliatory cough."},{"line": 10,"text": ""},{"line": 11,"text": "I then observed, 'What makes you look"},{"line": 12,"text": "So singularly glum?'"},{"line": 13,"text": "No notice of my words he took."},{"line": 14,
             "text": "I said, 'Pray, are you dumb?'"},{"line": 15,"text": ""},{"line": 16,"text": "'Oh no!' he said, 'I do not think"},{
             "line": 17,"text": "My power of speech is lost,"},{"line": 18,"text": "But when one's hopes are black as ink,"},{"line": 19,"text": "Why, talking is a frost."},{"line": 20,"text": ""},{"line": 21,"text": "'You see, I'm in for Math. again,"},{"line": 22,
@@ -207,7 +203,7 @@ export default class CreateRojak extends Component {
             projectDescription: this.state.projectDescription,
         }
 
-        // console.log(rojakPoem)
+        console.log(rojakPoem)
         axios.post('http://localhost:5000/poems/addRojakPoem', rojakPoem)
         .then(res => console.log(res.data));
 
