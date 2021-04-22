@@ -1,9 +1,10 @@
 const router = require('express').Router();
 let RojakPoem = require('../models/rojakPoem.model'); 
 let ActualPoem = require('../models/actualPoem.model'); 
+let NewSauce = require('../models/newSauce.model'); 
 
 router.route('/getRojakPoems').get((req, res) => {
-    RojakPoem.find()
+    RojakPoem.find().sort({ _id: -1 })
         .then(poems => res.json(poems))
         .catch(err => res.status(400).json('Error: ' + err));
 }); 
@@ -47,6 +48,24 @@ router.route('/addActualPoem').post((req, res) => {
 
     newActualPoem.save()
         .then(() => res.json('Poem added!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+}); 
+
+router.route('/addSauce').post((req, res) => {
+    const poetName = req.body.poetName
+    const poemTitle = req.body.poemTitle; 
+    const poem = req.body.poem;
+    const translation = req.body.translation
+
+    const newSauce  = new NewSauce({ 
+        poetName,
+        poemTitle, 
+        poem, 
+        translation,
+    })
+
+    newSauce.save()
+        .then(() => res.json('Saunce uploaded!'))
         .catch(err => res.status(400).json('Error: ' + err));
 }); 
 
