@@ -6,8 +6,10 @@ import CorpusList from "./components/corpus-list.component";
 import CreateRojak from "./components/create-rojak.component";
 import EditCorpus from "./components/edit-corpus.component";
 import RojakPoem from "./components/rojak-poem.component";
+import AddSauce from "./components/add-sauce.component";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/navbar.component";
+import AboutUs from "./components/about-us.component";
 
 
 function App() {
@@ -15,12 +17,13 @@ function App() {
     <Router>
       <div className="container">
         <Navbar /> 
-        <br/> 
         <Route path="/" exact component={PoemsList}/>
         <Route path="/edit/:id" component={EditCorpus}/>
         <Route path="/view/:id" component={RojakPoem}/> 
         <Route path="/corpus" component={CorpusList}/>
         <Route path="/createrojak" component={CreateRojak}/> 
+        <Route path='/addSauce' component={AddSauce}/>
+        <Route path="/aboutUs" component={AboutUs}/>
       </div>
     </Router>
   );

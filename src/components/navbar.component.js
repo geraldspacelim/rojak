@@ -17,6 +17,12 @@ export default class Navbar extends Component {
             <li className="navbar-item">
             <Link to="/corpus" className="nav-link">Corpus</Link>
             </li>
+            <li className="navbar-item">
+            <Link to="/addSauce" className="nav-link">Add Sauce</Link>
+            </li>
+            <li className="navbar-item">
+            <Link to="/aboutUs" className="nav-link">About Us</Link>
+            </li>
           </ul>
           </div>
         </nav>

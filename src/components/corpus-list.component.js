@@ -48,7 +48,7 @@ export default class CorpusList extends Component {
     render() {
         return (
             <div>
-            <h3>Terms</h3>
+            {/* <h3>Terms</h3> */}
             <Table striped bordered hover>
             <thead>
                 <tr>

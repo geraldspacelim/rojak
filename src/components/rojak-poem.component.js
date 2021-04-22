@@ -45,7 +45,7 @@ export default class RojakPoem extends Component {
         return (
             <div>
             <h3>{this.state.projectName}</h3>
-            <h8>BY <u>{this.state.author}</u></h8>
+            <h5>BY <u>{this.state.author}</u></h5>
             <br></br>
             <br></br>
             {this.poemFormat()}

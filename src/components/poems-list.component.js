@@ -42,7 +42,7 @@ export default class PoemsList extends Component {
         // const classes = useStyles();
         return (
             <div>
-            <h3>Poems List</h3>
+            {/* <h3>Poems List</h3> */}
             <div>
             <Grid
                 container
@@ -52,7 +52,7 @@ export default class PoemsList extends Component {
                 alignItems="flex-start"
             >
                 {this.state.rojakPoems.map(p => (
-                    <Grid item xs={12} sm={6} md={3} key={this.state.rojakPoems.indexOf(p)}>
+                    <Grid item xs={12} sm={6} md={3} key={p._id}>
                         <Card>
                             <CardHeader
                                 title={p.projectName}
