@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/rojak/static/css/main.abfc1f32.chunk.css",
+    "main.js": "/rojak/static/js/main.59ea51b0.chunk.js",
+    "main.js.map": "/rojak/static/js/main.59ea51b0.chunk.js.map",
+    "runtime-main.js": "/rojak/static/js/runtime-main.b22cebeb.js",
+    "runtime-main.js.map": "/rojak/static/js/runtime-main.b22cebeb.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/rojak/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.8e069af6.chunk.js": "/rojak/static/js/2.8e069af6.chunk.js",
+    "static/js/2.8e069af6.chunk.js.map": "/rojak/static/js/2.8e069af6.chunk.js.map",
+    "static/js/3.e7f50efe.chunk.js": "/rojak/static/js/3.e7f50efe.chunk.js",
+    "static/js/3.e7f50efe.chunk.js.map": "/rojak/static/js/3.e7f50efe.chunk.js.map",
+    "index.html": "/rojak/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/rojak/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.abfc1f32.chunk.css.map": "/rojak/static/css/main.abfc1f32.chunk.css.map",
+    "static/js/2.8e069af6.chunk.js.LICENSE.txt": "/rojak/static/js/2.8e069af6.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/rojak/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b22cebeb.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.8e069af6.chunk.js",
+    "static/css/main.abfc1f32.chunk.css",
+    "static/js/main.59ea51b0.chunk.js"
+  ]
+}
