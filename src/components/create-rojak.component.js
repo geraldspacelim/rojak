@@ -110,7 +110,7 @@ export default class CreateRojak extends Component {
     }
 
     fetchData() {
-        axios.get('http://localhost:5000/poems/getActualPoem')
+        axios.get('/poems/getActualPoem')
         .then(response => {
             if (response.data[0].actualPoem.length > 0 ) {
                 // console.log(response.data[0].actualPoem)
@@ -125,7 +125,7 @@ export default class CreateRojak extends Component {
             console.log(error);
         })
 
-        axios.get('http://localhost:5000/terms/getTerms')
+        axios.get('/terms/getTerms')
         .then(response => {
             if (response.data.length > 0 ) {
                 // console.log(response)
@@ -204,7 +204,7 @@ export default class CreateRojak extends Component {
         }
 
         // console.log(rojakPoem)
-        axios.post('http://localhost:5000/poems/addRojakPoem', rojakPoem)
+        axios.post('/poems/addRojakPoem', rojakPoem)
         .then(res => console.log(res.data));
 
         window.location = '/'

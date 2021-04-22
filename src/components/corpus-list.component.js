@@ -28,7 +28,7 @@ export default class CorpusList extends Component {
     } 
 
     componentDidMount() {
-        axios.get('http://localhost:5000/terms/getTerms')
+        axios.get('/terms/getTerms')
             .then(response => {
                 console.log(response)
                 this.setState({ terms: response.data})

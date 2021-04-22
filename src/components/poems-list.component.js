@@ -25,7 +25,7 @@ export default class PoemsList extends Component {
     } 
 
     componentDidMount() {
-        axios.get('http://localhost:5000/poems/getRojakPoems/')
+        axios.get('/poems/getRojakPoems/')
         .then(response => {
             if (response.data.length > 0) {
                 this.setState({

@@ -33,7 +33,7 @@ export default class AddSauce extends Component {
         }
 
         // console.log(rojakPoem)
-        axios.post('http://localhost:5000/poems/addSauce', newSauce)
+        axios.post('/poems/addSauce', newSauce)
         .then(res => console.log(res.data));
 
         window.location = '/'
