@@ -50,6 +50,13 @@ router.route('/addActualPoem').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 }); 
 
+router.route('/view/:id').get((req, res) => {
+    RojakPoem.findById(req.params.id)
+      .then(rojakPoem => res.json(rojakPoem))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+  
+
 module.exports = router;
 
 

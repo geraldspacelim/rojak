@@ -5,6 +5,7 @@ import PoemsList from "./components/poems-list.component";
 import CorpusList from "./components/corpus-list.component";
 import CreateRojak from "./components/create-rojak.component";
 import EditCorpus from "./components/edit-corpus.component";
+import RojakPoem from "./components/rojak-poem.component";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/navbar.component";
 
@@ -17,6 +18,7 @@ function App() {
         <br/> 
         <Route path="/" exact component={PoemsList}/>
         <Route path="/edit/:id" component={EditCorpus}/>
+        <Route path="/view/:id" component={RojakPoem}/> 
         <Route path="/corpus" component={CorpusList}/>
         <Route path="/createrojak" component={CreateRojak}/> 
       </div>

@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import { Card, Col  } from "react-bootstrap";
+// import { Col  } from "react-bootstrap";
 import axios from 'axios'
+// import { makeStyles } from '@material-ui/core/styles'
+import { Link } from 'react-router-dom';
 
-const CardPoem = props => {
-    return (
-        // <Col lg="4">
-            props.poem.author
-        // </Col>
-    )
-    // <div className='col lg-4' key={props.poem._id}>
-    // </div>
-}
+import {
+    Grid,
+    Card,
+    CardContent,
+    Typography,
+    CardHeader,
+    Button,
+    CardActions
+} from '@material-ui/core/'
+
 
 export default class PoemsList extends Component {
     constructor(props) {
@@ -35,37 +38,42 @@ export default class PoemsList extends Component {
         })
     }
 
-    rojakList() {
-        return this.state.rojakPoems.map(currentPoem => {
-            console.log(currentPoem)
-          return <CardPoem poem={currentPoem} key={currentPoem._id}/>;
-        })
-    }
-
-// { <div class="card" style="width: 18rem;">
-//   <div class="card-body">
-//     <h5 class="card-title">Card title</h5>
-//     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//     <a href="#" class="card-link">Card link</a>
-//     <a href="#" class="card-link">Another link</a>
-//   </div>
-// </div> }
-
-
     render() {
+        // const classes = useStyles();
         return (
             <div>
             <h3>Poems List</h3>
-                <Col>
-                    {this.rojakList()}
-                </Col>
-                <Col>
-                    {this.rojakList()}
-                </Col>
-                <Col>
-                    {this.rojakList()}
-                </Col>
+            <div>
+            <Grid
+                container
+                spacing={2}
+                direction="row"
+                justify="flex-start"
+                alignItems="flex-start"
+            >
+                {this.state.rojakPoems.map(p => (
+                    <Grid item xs={12} sm={6} md={3} key={this.state.rojakPoems.indexOf(p)}>
+                        <Card>
+                            <CardHeader
+                                title={p.projectName}
+                                // title={`quarter : ${elem.quarter}`}
+                                subheader={`By: ${p.author}`}
+                            />
+                            <CardContent>
+                                <Typography gutterBottom>
+                                    {p.projectDescription}
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button size="small">
+                                    <Link to={"/view/"+p._id} style={{ textDecoration: 'none' }}>Read more</Link>
+                                </Button>
+                            </CardActions>
+                        </Card>
+                     </Grid>
+                ))}
+            </Grid>
+        </div>
           </div>
         )
     }

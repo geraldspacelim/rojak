@@ -36,9 +36,9 @@ const PoemLine = (props) => {
         });
         tooltipEn = tooltipEn.slice(0, -2);
         return  (
-            <Form>
-                <Form.Group>
-                    <Row>
+            // <Form >
+            //     <Form.Group>
+                    <Row className="add-space">
                         <Col>
                                 {props.poemLine.searchText.length > 0 ? 
                                  <Form.Label column sm="12">
@@ -63,11 +63,11 @@ const PoemLine = (props) => {
                                 }
                         </Col>
                         <Col>
-                            <Form.Control type="text" required={true} value={props.poemLine.text} onChange={(e) => props.onChangePoemLine(props.poemLine.line, e)}/>
+                            <Form.Control type="text" required value={props.poemLine.text} onChange={(e) => props.onChangePoemLine(props.poemLine.line, e)}/>
                         </Col>
                     </Row>
-            </Form.Group>
-       </Form>
+    //         </Form.Group>
+    //    </Form>
         )    
     }  else {
         return (
@@ -203,7 +203,7 @@ export default class CreateRojak extends Component {
             projectDescription: this.state.projectDescription,
         }
 
-        console.log(rojakPoem)
+        // console.log(rojakPoem)
         axios.post('http://localhost:5000/poems/addRojakPoem', rojakPoem)
         .then(res => console.log(res.data));
 
@@ -258,8 +258,9 @@ export default class CreateRojak extends Component {
         }
         return (
             <div>
-                {this.PoemLinesList()}
+                {/* {this.PoemLinesList()} */}
                   <Form onSubmit={this.onNext}>
+                  {this.PoemLinesList()}
                     <Container>
                         <Row>
                             <Col md={1}>
